@@ -1,7 +1,8 @@
 {
-  "name": "vue-latest",
+  "name": "vue-rest-admin",
   "version": "0.1.0",
   "private": true,
+  "main": "./dist/rest-admin.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build  --target lib --name rest-admin src/index.js",
@@ -69,5 +70,11 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+  ],
+  "files": [
+    "dist/*",
+    "src/*",
+    "*.json",
+    "*.js"
   ]
 }

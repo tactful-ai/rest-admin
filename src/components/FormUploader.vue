@@ -25,7 +25,6 @@
 <script>
 import BDraggable from "vuedraggable";
 import BFormUploaderItem from "./FormUploaderItem";
-import types from "../store/types";
 export default {
   components: {
     BDraggable,
@@ -57,7 +56,7 @@ export default {
   },
   methods: {
     openFileBrowser(name) {
-      this.$store.commit(types.SHOW_FILE_BROWSER, { name });
+      //this.$store.commit(types.SHOW_FILE_BROWSER, { name });
     },
     update() {
       this.$emit("input", this.model);

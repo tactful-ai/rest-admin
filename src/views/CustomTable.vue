@@ -152,7 +152,6 @@
 
 <script>
 import { mapState, mapGetters } from "vuex";
-import types from "../store/types";
 import _ from "lodash";
 
 export default {

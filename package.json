@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build  --target lib --name rest-admin src/index.js",
     "mode": "echo $2",
     "test-api": "node ./api",
     "lint": "vue-cli-service lint"

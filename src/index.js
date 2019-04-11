@@ -17,8 +17,14 @@ import "vue-snotify/styles/material.css"
 import storage from './storage'
 import routes from './routes'
 
+const optionsDefaults = {
+    
+};
 const restAdminPlugin = {
-    install (Vue, _options) {
+    install (Vue, opts) {
+        // Merge options argument into options defaults
+        const options = { ...optionsDefaults, ...opts }
+
         Vue.prototype.$storage = storage
         Vue.prototype._ = _
 

@@ -11,6 +11,9 @@ module.exports = {
       splitChunks: {
         chunks: 'all'
       }
+    },
+    output: {
+      libraryExport: 'default'
     }
   },
   

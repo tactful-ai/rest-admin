@@ -1,12 +1,12 @@
 
-import ResourceIndex from "../views/ResourceIndex";
-import ResourceEdit from "../views/ResourceEdit";
-import ResourceShow from "../views/ResourceShow";
-import ResourceStat from "../views/ResourceStat";
-import CustomForm from "../views/CustomForm";
-import CustomPage from "../views/CustomPage";
-import CustomTable from "../views/CustomTable";
-import Home from "../views/Home";
+import ResourceIndex from "./views/ResourceIndex";
+import ResourceEdit from "./views/ResourceEdit";
+import ResourceShow from "./views/ResourceShow";
+import ResourceStat from "./views/ResourceStat";
+import CustomForm from "./views/CustomForm";
+import CustomPage from "./views/CustomPage";
+import CustomTable from "./views/CustomTable";
+import Home from "./views/Home";
 
 routes: [
   {

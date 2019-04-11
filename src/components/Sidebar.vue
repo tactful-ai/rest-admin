@@ -1,23 +1,4 @@
 <template>
-  <div class="sidebar position-fixed">
-    <div class="text-center top">
-      <a :href="site.url" target="_blank" v-if="site.logo">
-        <b-img class="site-logo" :src="site.logo" fluid/>
-      </a>
-      <!-- <b-img class="site-logo" :src="require('../assets/img/gengyi-logo.svg')" fluid style="border-radius: 5px;" /> -->
-      <!-- <b-img rounded="circle" :src="auth.user.avatar" height="70" blank-color="#777" alt="avatar" class="m-2" /> -->
-      <div class="my-3" v-if="site.sidebar_userinfo !== false">
-        <h5 style="letter-spacing:2px">{{site.name}}</h5>
-        <template v-if="auth.user">
-          <b-badge class="text-uppercase mr-1" v-if="auth.user.badge">{{auth.user.badge}}</b-badge>
-          <span>{{auth.user.username}}</span>
-        </template>
-      </div>
-      <div v-else></div>
-
-      <locale-switcher></locale-switcher>
-      <theme-switcher></theme-switcher>
-    </div>
     <nav class="sidebar-nav">
       <div slot="header"></div>
       <ul class="nav nav-pills flex-column">
@@ -75,12 +56,8 @@
       </ul>
       <slot></slot>
     </nav>
-    <p></p>
-  </div>
 </template>
 <script>
-import ThemeSwitcher from "./ThemeSwitcher";
-import LocaleSwitcher from "./LocaleSwitcher";
 
 import { mapState } from "vuex";
 export default {
@@ -89,7 +66,6 @@ export default {
   computed: {
     ...mapState(["auth", "site"])
   },
-  components: { LocaleSwitcher, ThemeSwitcher },
   methods: {
     toggle(item) {
       this.$set(item, "open", !item.open);

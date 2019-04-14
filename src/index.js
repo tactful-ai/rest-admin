@@ -20,7 +20,7 @@ import routes from './routes'
 const optionsDefaults = {
     
 };
-const restAdminPlugin = {
+export const restAdminPlugin = {
     install (Vue, opts) {
         // Merge options argument into options defaults
         const options = { ...optionsDefaults, ...opts }
@@ -36,5 +36,3 @@ const restAdminPlugin = {
     },
     routes: routes
 };
-
-export default restAdminPlugin;

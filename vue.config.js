@@ -12,9 +12,6 @@ module.exports = {
         chunks: 'all'
       }
     },
-    output: {
-      libraryExport: 'default'
-    }
   },
   
 }

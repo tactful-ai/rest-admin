@@ -1,5 +1,5 @@
 {
-  "name": "vue-rest-admin",
+  "name": "rest-admin",
   "version": "0.1.0",
   "private": true,
   "main": "./dist/rest-admin.common.js",

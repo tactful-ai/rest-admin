@@ -15,17 +15,18 @@ export default {
         originalname: { label: "原文件名" },
         url: { type: "image", style: { height: "3em" } }
       },
-      items: []
+      items: [],
+      fetched: false
     };
   },
   computed: {
     ...mapState(["site"]),
     fileUrl() {
-      return [this.site.resource_prefix, "files"].filter(v => v).join("/");
+      return [this.$config.resource_prefix, "files"].filter(v => v).join("/");
     }
   },
   watch: {
-    "site.fetched": "fetch"
+    "fetched": "fetch"
   },
   methods: {
     fetch() {
@@ -35,7 +36,7 @@ export default {
     }
   },
   created() {
-    this.site.fetched && this.fetch();
+    this.fetched && this.fetch();
   }
 };
 </script>

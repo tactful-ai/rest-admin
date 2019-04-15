@@ -13,7 +13,7 @@
       </div>
     </div>
     <b-form-builder
-      :languages="$store.state.site.languages"
+      languages="english"
       group-by="group"
       v-if="loaded"
       :auth="auth"
@@ -59,6 +59,7 @@ export default {
       model: {},
       errors: [],
       tag: "b-card",
+      fetched: false,
       header: `
         ${_.get(this.currentMenu, "name", "") || ""}
         <small> ${this.resource.toUpperCase()} </small>
@@ -67,7 +68,7 @@ export default {
   },
   watch: {
     id: "fetchForm",
-    "site.fetched"(val){
+    "fetched"(val){
       if (val) {
         this.fetchForm(true)
       }
@@ -75,7 +76,7 @@ export default {
   },
   computed: {
     resourceUri() {
-      let url = [this.site.resource_prefix, this.resource, this.id]
+      let url = [this.$config.resource_prefix, this.resource, this.id]
         .filter(v => v)
         .join("/");
       let group = this.$route.params.group;
@@ -85,7 +86,7 @@ export default {
       return url;
     },
     formUri() {
-      let url = [this.site.resource_prefix, this.resource, this.formPath]
+      let url = [this.$config.resource_prefix, this.resource, this.formPath]
         .filter(v => v)
         .join("/");
       url += "?id=" + (this.id || "");
@@ -102,8 +103,6 @@ export default {
         _.map(this.fields, v => v.ref && v.ref.split(".").shift())
       );
     },
-    ...mapState(["nav", "auth", "site"]),
-    ...mapGetters(["currentMenu"])
   },
   methods: {
     fetch() {
@@ -155,7 +154,7 @@ export default {
     }
   },
   mounted() {
-    this.site.fetched && this.fetchForm()
+    this.fetched && this.fetchForm()
   },
   created() {
     // this.fetchForm();

@@ -1,6 +1,6 @@
 <template>
   <div class="data-table">
-    <div v-if="site.grid_style === 1">
+    <div v-if="$config.grid_style === 1">
       <div class="pb-3">
         <b-btn
           class="mr-2"
@@ -197,7 +197,7 @@
         </b-btn>
       </template>
     </b-table>
-    <div v-if="site.grid_style === 1">
+    <div v-if="$config.grid_style === 1">
       <b-row>
         <b-col cols="8">
           <b-pagination
@@ -304,13 +304,13 @@ export default {
       return this.resource;
     },
     resourceUri() {
-      return [this.site.resource_prefix, this.resource]
+      return [this.$config.resource_prefix, this.resource]
         .map(v => v.trim("/"))
         .filter(v => v)
         .join("/");
     },
     gridUri() {
-      return [this.site.resource_prefix, this.resource, this.gridPath]
+      return [this.$config.resource_prefix, this.resource, this.gridPath]
         .filter(v => v)
         .join("/");
     },
@@ -349,7 +349,7 @@ export default {
     }
   },
   watch: {
-    "site.fetched"(val) {
+    "fetched"(val) {
       if (val) {
         this.fetchGrid(true);
       }
@@ -496,7 +496,7 @@ export default {
       });
     },
     edit(item) {
-      if (this.site.grid_style == 2) {
+      if (this.$config.grid_style == 2) {
         return this.$router.push({
           path: `/page/${this.resource}.${item[this.$config.primaryKey]}.edit`
         });
@@ -531,7 +531,7 @@ export default {
   },
 
   mounted() {
-    this.site.fetched && this.fetchGrid(true);
+    this.$config.fetched && this.fetchGrid(true);
 
     // console.log('mounted');
   },

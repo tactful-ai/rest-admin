@@ -1,7 +1,6 @@
 <template>
   <div class="app-footer">
-    <footer class="bg-light" v-html="site.footer" v-if="site.footer"></footer>
-    <footer class="bg-light" v-else>
+    <footer class="bg-light">
       <span class="ml-auto">
         GitHub
         <a href="https://github.com/wxs77577/rest-admin">REST-ADMIN</a>

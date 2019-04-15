@@ -37,9 +37,7 @@ export default {
   },
   methods: {
     fetch() {
-      this.$http.get("home").then(({ data }) => {
-        this.data = data;
-      });
+      this.data = data;
     }
   },
   created() {

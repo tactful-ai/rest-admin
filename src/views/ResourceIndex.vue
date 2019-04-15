@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-data-table v-if="$store.state.site.grid_style == 2" :resource="resource"></b-data-table>
+    <b-data-table v-if="$config.grid_style == 2" :resource="resource"></b-data-table>
     <custom-table v-else></custom-table>
   </div>
 </template>

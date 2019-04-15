@@ -32,7 +32,6 @@
 import BDataValue from "./DataValue";
 import _ from 'lodash'
 
-import { mapState, mapGetters } from 'vuex'
 export default {
   components: {
     BDataValue
@@ -59,19 +58,20 @@ export default {
       fields: {},
       model: {},
       errors: [],
-      items: []
+      items: [],
+      fetched: false
     };
   },
 
   computed: {
     resourceUri() {
-      let url = [this.site.resource_prefix, this.resource, this.id]
+      let url = [this.$config.resource_prefix, this.resource, this.id]
         .filter(v => v)
         .join("/");
       return url;
     },
     viewUri() {
-      let url = [this.site.resource_prefix, this.resource, this.viewPath]
+      let url = [this.$config.resource_prefix, this.resource, this.viewPath]
         .filter(v => v)
         .join("/");
       url += "?id=" + (this.id || "");
@@ -83,8 +83,6 @@ export default {
       );
     },
 
-    ...mapState(['site']),
-    ...mapGetters(["currentMenu", "currentLanguage"]),
     header() {
       return `
         ''
@@ -112,7 +110,7 @@ export default {
   },
   watch: {
     id: "fetchForm",
-    "site.fetched"(val){
+    "fetched"(val){
       if (val) {
         this.fetchView(true)
       }
@@ -122,7 +120,7 @@ export default {
 
   },
   created() {
-    this.site.fetched && this.fetchView();
+    this.fetched && this.fetchView();
 
 
   }

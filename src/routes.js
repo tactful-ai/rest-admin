@@ -8,39 +8,35 @@ import CustomPage from "./views/CustomPage";
 import CustomTable from "./views/CustomTable";
 import Home from "./views/Home";
 
-routes: [
+let routes = [
   {
-    path: "/",
-    redirect: "/home"
-  },
-  {
-    path: "/home",
+    path: "/admin",
     name: "home",
     component: Home
   },
   {
-    path: "/rest/:resource/stat/:type?",
+    path: "/admin/:resource/stat/:type?",
     name: "stat",
     component: ResourceStat
   },
   {
-    path: "/rest/:resource",
+    path: "/admin/:resource",
     name: "index",
     component: ResourceIndex
   },
   {
-    path: "/rest/:resource/create/:group?",
+    path: "/admin/:resource/create/:group?",
     name: "create",
     component: ResourceEdit
   },
   {
-    path: "/rest/:resource/:id/edit/:group?",
+    path: "/admin/:resource/:id/edit/:group?",
     name: "edit",
     component: ResourceEdit
   },
 
   {
-    path: "/rest/:resource/:id/:group?",
+    path: "/admin/:resource/:id/:group?",
     name: "show",
     component: ResourceShow
   },

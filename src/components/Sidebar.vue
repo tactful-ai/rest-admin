@@ -2,7 +2,7 @@
     <nav class="sidebar-nav">
       <div slot="header"></div>
       <ul class="nav nav-pills flex-column">
-        <template v-for="(item, index) in site.menu">
+        <template v-for="(item, index) in models">
           <li class="nav-item" v-if="item.title" :key="index">
             <div class="nav-title">{{item.name}}</div>
           </li>
@@ -59,12 +59,13 @@
 </template>
 <script>
 
-import { mapState } from "vuex";
 export default {
   name: "sidebar",
 
   computed: {
-    ...mapState(["auth", "site"])
+    models() {
+      return this.$config.models;
+    }
   },
   methods: {
     toggle(item) {
